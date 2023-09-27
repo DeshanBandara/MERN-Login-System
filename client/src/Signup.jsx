@@ -1,5 +1,5 @@
 import { useState } from "react";
-import React from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from 'axios';
 
 function Signup() {
@@ -9,9 +9,9 @@ function Signup() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:3001/register', { name, email, password })
-            .then(result => console.log(result))
-            .catch(err => console.log(err))
+        axios.post('', {name, email, password})
+        .then(result => console.log(result))
+        .catch(err=> console.log(err))
     }
 
     return (
@@ -20,7 +20,7 @@ function Signup() {
                 <h2>Register</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
-                        <label htmlFor="email">
+                        <label htmlFor="name">
                             <strong>Name</strong>
                         </label>
                         <input
@@ -44,7 +44,7 @@ function Signup() {
                         />
                     </div>
                     <div className="mb-3">
-                        <label htmlFor="email">
+                        <label htmlFor="password">
                             <strong>Password</strong>
                         </label>
                         <input
@@ -61,9 +61,9 @@ function Signup() {
                     </button>
                 </form>
                 <p>Already Have an Account</p>
-                <a href="/login" className="btn btn-default w-100 bg-light rounded-0 text-decoration-none">
+                <Link to="/login" className="btn btn-default w-100 bg-light rounded-0 text-decoration-none">
                     Login
-                </a>
+                </Link>
             </div>
         </div>
     );
